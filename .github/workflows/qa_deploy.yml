@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    if: "!github.event.pull_request.draft"
     steps:
     - name: Deploy QA
       run: "echo Deploying ${{ github.head_ref }} to QA for ${{ github.actor }}"
