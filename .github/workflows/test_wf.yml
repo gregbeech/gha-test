@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "Echo some stuff"
-      run: "echo head ref is ${{ github.head_ref }}"
+      run: "echo head ref is ${{ github.head_ref }} and commit is ${{ github.sha }}"
