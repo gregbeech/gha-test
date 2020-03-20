@@ -6,7 +6,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    if: "!github.event.pull_request.draft && !contains(github.event.pull_request.labels.*.name, 'no-smoke-test')"
+    if: "!github.event.pull_request.draft"
     steps:
     - name: "🚀 Deploy QA"
       run: "echo Deploying ${{ github.head_ref }} to QA for ${{ github.actor }}"
