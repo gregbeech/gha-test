@@ -1,0 +1,12 @@
+name: QA Undeploy
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  undeploy:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+    - name: Undeploy QA
+      run: "echo Undeploying ${{ github.head_ref }} from QA for ${{ github.actor }}"
