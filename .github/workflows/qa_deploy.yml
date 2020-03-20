@@ -1,0 +1,12 @@
+name: QA Deploy
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+    - name: Dump GitHub context
+      run: ":github: Deploying ${{ github.head_ref }} to QA for ${{ github.actor }}"
