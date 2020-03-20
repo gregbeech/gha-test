@@ -1,12 +1,12 @@
-name: QA Deploy
+name: smoke-test
 on:
   pull_request:
     types: [opened, ready_for_review, synchronize, reopened]
 
 jobs:
-  deploy:
+  run:
     runs-on: ubuntu-latest
-    if: "!github.event.pull_request.draft"
+    if: "!github.event.pull_request.draft && !contains(github.event.pull_request.labels.*.name, 'no-smoke-test')"
     steps:
-    - name: Deploy QA
+    - name: "🚀 Deploy QA"
       run: "echo Deploying ${{ github.head_ref }} to QA for ${{ github.actor }}"

@@ -1,0 +1,12 @@
+name: smoke-test
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  teardown:
+    runs-on: ubuntu-latest
+    if: "!github.event.pull_request.draft"
+    steps:
+    - name: "💥 Destroy QA"
+      run: "echo Destroying ${{ github.head_ref }} from QA for ${{ github.actor }}"
