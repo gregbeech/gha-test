@@ -1,7 +1,7 @@
 name: QA Deploy
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, ready_for_review, synchronize, reopened]
 
 jobs:
   deploy:
